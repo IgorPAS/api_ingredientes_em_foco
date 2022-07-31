@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cpfCnpj: MyString
+  email: MyString
+  password: MyString
+  birthDate: 2022-07-31
+  typeUser: 
+
+two:
+  name: MyString
+  cpfCnpj: MyString
+  email: MyString
+  password: MyString
+  birthDate: 2022-07-31
+  typeUser: 
