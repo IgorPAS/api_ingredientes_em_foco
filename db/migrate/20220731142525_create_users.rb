@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :email, null: false, index: { unique: true, name: 'unique_emails' }
       t.string :password_digest, null: false
       t.date :birthDate, null: false
-      t.binary :typeUser, null: false, default: 0
+      t.boolean :typeUser, null: false, default: false
 
       t.timestamps
     end
