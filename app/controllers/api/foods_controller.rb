@@ -1,4 +1,5 @@
 class Api::FoodsController < ApplicationController
+  before_action :authorize_request, except: [:index, :show] 
   before_action :set_food, only: %i[ show update destroy ]
 
   # GET /foods
@@ -18,7 +19,7 @@ class Api::FoodsController < ApplicationController
     @food = Food.new(food_params)
 
     if @food.save
-      render json: @food, status: :created, location: @food
+      render json: @food, status: :created,  location: api_food_url(@food)
     else
       render json: @food.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class Api::FoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:name, :image, :manufacture, :infoNutritional, :user_id)
+      params.require(:food).permit(:name, :image, :manufacture, :ingredients, :infoNutritional, :user_id)
     end
 end
